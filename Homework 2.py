@@ -1,7 +1,7 @@
 import matplotlib as plot
 import numpy as np
 
-# unconstrained
+# unconstrained function is distance between x2 and x3, and the point
 def function(x):
     x2 = x[0]
     x3 = x[1]
@@ -10,25 +10,23 @@ def function(x):
 def gradient(x):
     x2 = x[0]
     x3 = x[1]
-    return ([10 * x2 + 12 * x3 - 8, 20 * x3 +12 * x2 - 14])
+    return np.array([10 * x2 + 12 * x3 - 8, 20 * x3 +12 * x2 - 14])
 
-guess1 = [ 1, -1]
-g0 = [-10, -22]
+xinit = np.array([ 1, -1])  # initial guess
+g0 = np.array([-10, -22]) # gradient value at initial guess
 
 breakpoint()
 
-t = np.linspace(0, 1, 0.05)
-def ile(function, g0, guess1, t):
-    alpha = 1
-    step = 0
-    f0 = function(guess1 - alpha * g0)
-    phi0 = function(guess1) - t* g0 .T @ g0 * alpha
-    while f0 > phi0 and step < 100 :
-        alpha = alpha / 2
-        step += 1
-        f0 = function(guess1 - alpha * g0)
-        phi0 = function(guess1) - t* g0 .T @ g0 * alpha
-    xk = guess1 - alpha * g0
-    return xk
+t = 0.5
+def ils(x,alpha):
+    phi = funciton(x) - t* gradient(x).T @ gradient(x) * alpha
+    if (function(x - alpha *g0) > phi):
+        alpha = .5 * alpha
+        return ils(x,alpha)
+    else:
+        return alpha
 
-for counter
+
+
+
+print("Initial guess for x2 and x3 are:" + str(xinit))
