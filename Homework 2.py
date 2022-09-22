@@ -49,3 +49,4 @@ print("x1 = " + str(x1g))
 print("x2 = " + str(x2g))
 print("x3 = " + str(x3g))
 print("Initial guess for x2 and x3 are:" + str(xinit))
+# I was having problems with this code running in Pycharm for some reason, so I switched to Jupyter at this point, and it worked.
